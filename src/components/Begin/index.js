@@ -1,11 +1,10 @@
 const yo = require('yo-yo');
 const {doesDecode} = require('../../util');
 
-const PLACEHOLDER = '––––––––';
+const PLACEHOLDER = '––––––';
 
 const Begin = (state, send) => {
 	const doesCodeInputValueDecode = doesDecode(state.codeInputValue, state.choicesLengths);
-  const codePlaceholder = PLACEHOLDER.substr(0, Math.ceil(state.questions.length / 3));
 
   return yo`<div class="Begin Card">
       ${state.isLocked ? yo`<div class="BeginLocked">Submissions Closed</div>` : null}
@@ -15,7 +14,7 @@ const Begin = (state, send) => {
   		<div class="BeginCode-control">
   			<input type="text" class="TextInput"
   				value="${state.codeInputValue}"
-          placeholder="${codePlaceholder}"
+          placeholder="${PLACEHOLDER}"
   				onkeyup=${(e) => {
   					if (doesCodeInputValueDecode && e.keyCode === 13) {
   						send('load', {code: state.codeInputValue});
