@@ -4,7 +4,7 @@
 	"questions": [
 		{
 			"id": "picture",
-			"statement": "Best picture",
+			"statement": "Which movie will win Best Picture?",
 			"choices": [
 				"Arrival",
 				"Fences",
@@ -30,7 +30,7 @@
 		},
 		{
 			"id": "actor",
-			"statement": "Actor in a leading role",
+			"statement": "Who will win Best Actor?",
 			"choices": [
 				"Casey Affleck, Manchester by the Sea",
 				"Andrew Garfield, Hacksaw Ridge",
@@ -48,7 +48,7 @@
 		},
 		{
 			"id": "actress",
-			"statement": "Actress in a leading role",
+			"statement": "Who will win Best Actress?",
 			"choices": [
 				"Isabelle Huppert, Elle",
 				"Ruth Negga, Loving",
@@ -66,7 +66,7 @@
 		},
 		{
 			"id": "supporting-actor",
-			"statement": "Actor in a supporting role",
+			"statement": "Who will win Best Supporting Actor?",
 			"choices": [
 				"Mahershala Ali, Moonlight",
 				"Jeff Bridges, Hell or High Water",
@@ -84,7 +84,7 @@
 		},
 		{
 			"id": "supporting-actress",
-			"statement": "Actress in a supporting role",
+			"statement": "Who will win Best Supporting Actress?",
 			"choices": [
 				"Viola Davis, Fences",
 				"Naomi Harris, Moonlight",
@@ -102,7 +102,7 @@
 		},
 		{
 			"id": "director",
-			"statement": "Best Director",
+			"statement": "Who will win Best Director?",
 			"choices": [
 				"Denis Villeneuve, Arrival",
 				"Mel Gibson, Hacksaw Ridge",
@@ -120,7 +120,7 @@
 		},
 		{
 			"id": "animated-feature",
-			"statement": "Best Animated Feature",
+			"statement": "Which movie will win Best Animated Feature?",
 			"choices": [
 				"Kubo and the Two Strings",
 				"Moana",
@@ -138,7 +138,7 @@
 		},
 		{
 			"id": "original-song",
-			"statement": "Music (Original Song)",
+			"statement": "What song will win Music (Original Song)?",
 			"choices": [
 				"Audition (The Fools Who Dream) from La La Land",
 				"Can't Stop the Feeling from Trolls",
@@ -156,7 +156,7 @@
 		},
 		{
 			"id": "adapted-screenplay",
-			"statement": "Writing (Adapted Screenplay)",
+			"statement": "Which movie will win Writing (Adapted Screenplay)?",
 			"choices": [
 				"Arrival",
 				"Fences",
@@ -174,7 +174,7 @@
 		},
 		{
 			"id": "original-screenplay",
-			"statement": "Writing (Original Screenplay)",
+			"statement": "Which movie will win Writing (Original Screenplay)?",
 			"choices": [
 				"Hell or High Water",
 				"La La Land",
