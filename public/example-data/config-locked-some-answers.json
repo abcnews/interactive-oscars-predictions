@@ -1,0 +1,125 @@
+{
+	"id": "dev",
+	"isLocked": true,
+	"questions": [
+		{
+			"id": "picture",
+			"statement": "Best picture",
+			"choices": [
+				"Arrival",
+				"Fences",
+				"Hacksaw Ridge",
+				"Hell or High Water",
+				"Hidden Figures",
+				"La La Land",
+				"Lion",
+				"Manchester by the Sea",
+				"Moonlight"
+			]
+		},
+		{
+			"id": "actor",
+			"statement": "Actor in a leading role",
+			"choices": [
+				"Casey Affleck, Manchester by the Sea",
+				"Andrew Garfield, Hacksaw Ridge",
+				"Ryan Gosling, La La Land",
+				"Viggo Mortensen, Captain Fantastic",
+				"Denzel Washington, Fences"
+			],
+			"answer": 1
+		},
+		{
+			"id": "actress",
+			"statement": "Actress in a leading role",
+			"choices": [
+				"Isabelle Huppert, Elle",
+				"Ruth Negga, Loving",
+				"Natalie Portman, Jackie",
+				"Emma Stone, La La Land",
+				"Meryl Streep, Florence Foster Jenkins"
+			]
+		},
+		{
+			"id": "supporting-actor",
+			"statement": "Actor in a supporting role",
+			"choices": [
+				"Mahershala Ali, Moonlight",
+				"Jeff Bridges, Hell or High Water",
+				"Lucas Hedges, Manchester by the Sea",
+				"Dev Patel, Lion",
+				"Michael Shannon, Nocturnal Animals"
+			],
+			"answer": 1
+		},
+		{
+			"id": "supporting-actress",
+			"statement": "Actress in a supporting role",
+			"choices": [
+				"Viola Davis, Fences",
+				"Naomi Harris, Moonlight",
+				"Nicole Kidman, Lion",
+				"Octavia Spencer, Hidden Figures",
+				"Michelle Williams, Manchester by the Sea"
+			]
+		},
+		{
+			"id": "director",
+			"statement": "Best Director",
+			"choices": [
+				"Denis Villeneuve, Arrival",
+				"Mel Gibson, Hacksaw Ridge",
+				"Damien Chazelle, La La Land",
+				"Kenneth Lonergan, Manchester by the Sea",
+				"Barry Jenkins, Moonlight"
+			],
+			"answer": 1
+		},
+		{
+			"id": "animated-feature",
+			"statement": "Best Animated Feature",
+			"choices": [
+				"Kubo and the Two Strings",
+				"Moana",
+				"My Life as a Zucchini",
+				"The Red Turtle",
+				"Zootopia"
+			]
+		},
+		{
+			"id": "original-song",
+			"statement": "Music (Original Song)",
+			"choices": [
+				"Audition (The Fools Who Dream) from La La Land",
+				"Can't Stop the Feeling from Trolls",
+				"City Of Stars from La La Land",
+				"The Empty Chair from Jim: The James Foley Story",
+				"How Far I'll Go from Moana"
+			],
+			"answer": 1
+		},
+		{
+			"id": "adapted-screenplay",
+			"statement": "Writing (Adapted Screenplay)",
+			"choices": [
+				"Arrival",
+				"Fences",
+				"Hidden Figures",
+				"Lion",
+				"Moonlight"
+			]
+		},
+		{
+			"id": "original-screenplay",
+			"statement": "Writing (Original Screenplay)",
+			"choices": [
+				"Hell or High Water",
+				"La La Land",
+				"The Lobster",
+				"Manchester by the Sea",
+				"20th Century Women"
+			],
+			"answer": 1
+		}
+	]
+}

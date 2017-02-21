@@ -1,0 +1,28 @@
+{
+  "name": "interactive-oscars-predictions",
+  "version": "1.0.0",
+  "description": "Predict the outcome of the Oscars and compare against the rest of the audience.",
+  "license": "MIT",
+  "private": true,
+  "contributors": [
+    "Colin Gourlay <Gourlay.Colin@abc.net.au>"
+  ],
+  "scripts": {
+    "build": "aunty build",
+    "start": "aunty serve --debug"
+  },
+  "dependencies": {
+    "base-n": "^1.0.0",
+    "fastclick": "^1.0.6",
+    "firebase": "^3.0.5",
+    "raf": "^3.2.0",
+    "send-action": "^1.1.0",
+    "yo-yo": "^1.2.0"
+  },
+  "devDependencies": {
+    "@abcnews/aunty": "2.2.x"
+  },
+  "aunty": {
+    "type": "basic-story"
+  }
+}

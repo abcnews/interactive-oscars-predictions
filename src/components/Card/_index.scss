@@ -1,0 +1,50 @@
+.Card {
+	position: relative;
+	margin: 40px auto;
+	border-radius: 5px;
+	padding: 10px;
+	width: 100%;
+	max-width: 420px;
+	box-sizing: border-box;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+	background-color: $white;
+	font-size: 14px;
+	text-align: center;
+	line-height: 1.4;
+	animation: fadeIn .25s both;
+	will-change: opacity;
+}
+
+.story.richtext .Card {
+	font-family: $fontFamilyMobile;
+}
+
+.section.article .Card {
+	font-family: $fontFamilyStandard;
+}
+
+.Card .h1,
+.Card .h2 {
+	font-weight: bold;
+	line-height: 1.2222;
+}
+
+.Card .h1 {
+	padding-top: 10px;
+	font-size: 18px;
+}
+
+.Card .h2 {
+	margin: 25px 0 0 0;
+	font-size: 16px;
+}
+
+.Card .h1 + .h2 {
+	margin-top: 10px;
+}
+
+.Card .label {
+	margin-top: 5px;
+	font-weight: bold;
+	color: $darkGrey;
+}

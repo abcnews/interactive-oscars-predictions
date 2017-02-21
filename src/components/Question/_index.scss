@@ -1,0 +1,14 @@
+.Question {
+	max-width: 720px;
+}
+
+.QuestionLabel + .h1 {
+	padding-top: 15px;
+}
+
+@import "./label";
+@import "./personalChoices";
+@import "./personalResult";
+@import "./publicResult";
+@import "./publicChoices";
+@import "./publicResponses";

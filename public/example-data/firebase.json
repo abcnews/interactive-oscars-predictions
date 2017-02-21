@@ -1,0 +1,26 @@
+{
+	"dev": {
+		"picture": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+		"actor": [0, 0, 0, 0, 0],
+		"actress": [0, 0, 0, 0, 0],
+		"supporting-actor": [0, 0, 0, 0, 0],
+		"supporting-actress": [0, 0, 0, 0, 0],
+		"director": [0, 0, 0, 0, 0],
+		"animated-feature": [0, 0, 0, 0, 0],
+		"original-song": [0, 0, 0, 0, 0],
+		"adapted-screenplay": [0, 0, 0, 0, 0],
+		"original-screenplay": [0, 0, 0, 0, 0]
+	},
+	"prod": {
+		"picture": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+		"actor": [0, 0, 0, 0, 0],
+		"actress": [0, 0, 0, 0, 0],
+		"supporting-actor": [0, 0, 0, 0, 0],
+		"supporting-actress": [0, 0, 0, 0, 0],
+		"director": [0, 0, 0, 0, 0],
+		"animated-feature": [0, 0, 0, 0, 0],
+		"original-song": [0, 0, 0, 0, 0],
+		"adapted-screenplay": [0, 0, 0, 0, 0],
+		"original-screenplay": [0, 0, 0, 0, 0]
+	}
+}

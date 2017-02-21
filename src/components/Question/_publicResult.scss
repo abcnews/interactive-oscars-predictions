@@ -1,0 +1,17 @@
+.QuestionPublicResult {
+	margin: 7px 0 0 0;
+	color: $blue;
+	font-weight: bold;
+}
+
+.Question--locked .QuestionPublicResult {
+	color: $darkGrey;
+}
+
+.QuestionPublicResult .is-positive {
+	color: $green;
+}
+
+.QuestionPublicResult .is-negative {
+	color: $red;
+}

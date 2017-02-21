@@ -1,0 +1,26 @@
+.QuestionLabel {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 4px 30px 3px 10px;
+	border-radius: 3px;
+	background-color: $darkGrey;
+	color: $white;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+.QuestionLabel::after {
+	content: "";
+	position: absolute;
+	top: 3px;
+	right: 9px;
+	width: 14px;
+	height: 14px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjExIiBoZWlnaHQ9IjEzIiB2aWV3Qm94PSIwIDAgMTEgMTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPkxvY2s8L3RpdGxlPjxwYXRoIGQ9Ik02IDguOTE1YTEuNSAxLjUgMCAxIDAtMSAwdjEuNTljMCAuMjguMjI0LjQ5NS41LjQ5NS4yNjggMCAuNS0uMjIyLjUtLjQ5NXYtMS41OXpNMiA0aC0uMDA4QTIgMiAwIDAgMCAwIDUuOTk3djUuMDA2QzAgMTIuMTA0Ljg5MiAxMyAxLjk5MiAxM2g3LjAxNkEyIDIgMCAwIDAgMTEgMTEuMDAzVjUuOTk3QTEuOTk2IDEuOTk2IDAgMCAwIDkuMDA4IDRIOVYyLjAxQTIgMiAwIDAgMCA3IDBINEMyLjg5IDAgMiAuOTAxIDIgMi4wMVY0em0yLTFjMC0uNTUyLjQ0My0xIC45OTktMWgxLjAwMkM2LjU1MyAyIDcgMi40NDQgNyAzdjFINFYzeiIgZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+");
+}

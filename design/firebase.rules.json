@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "$id": {
+      ".read": true,
+      "$question_id": {
+        "$choice_index": {
+          ".write": "newData.isNumber() && newData.val() === data.val() + 1"
+        }
+      }
+    }
+  }
+}

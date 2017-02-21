@@ -1,0 +1,27 @@
+.QuestionPersonalChoices {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 12px -5px 0;
+}
+
+.QuestionPersonalChoices-choice {
+	display: flex;
+	flex-direction: column;
+	flex: 0 0 calc(100% - 10px);
+	margin: 5px;
+
+	@media (min-width: 500px) {
+		flex: 0 0 calc(50% - 10px);
+	}
+
+	@media (min-width: 740px) {
+		flex: 0 0 calc(33.33% - 10px);
+	}
+}
+
+.QuestionPersonalChoices-choice > * {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex: 1 0 auto;
+}

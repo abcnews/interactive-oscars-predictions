@@ -1,0 +1,24 @@
+.TextInput {
+	outline: none;
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	padding: 0 5px;
+	width: 100%;
+	height: 42px;
+	box-sizing: border-box;
+	box-shadow: inset 1px 1px 3px 0 rgba(0, 0, 0, 0.3);
+	background-color: $lightestGrey;
+	color: $black;
+	font-size: 28px;
+	line-height: 40px;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.section.article .TextInput {
+	font-family: $fontFamilyStandard;
+}
+
+.story.richtext .TextInput {
+	font-family: $fontFamilyMobile;
+}

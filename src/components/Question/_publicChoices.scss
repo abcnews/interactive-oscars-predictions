@@ -1,0 +1,62 @@
+.QuestionPublicChoices {
+	margin: 12px auto 8px;
+	max-width: 400px;
+	color: $darkerGrey;
+	font-weight: bold;
+	text-align: left;
+}
+
+.QuestionPublicChoices-choice {
+	margin: 8px 0 0 0;
+}
+
+.QuestionPublicChoices-choice--selected {
+	color: $blue;
+}
+
+.QuestionPublicChoices-choice--correct {
+	color: $green;
+}
+
+.QuestionPublicChoices-choice--selected.QuestionPublicChoices-choice--incorrect {
+	color: $red;
+}
+
+.QuestionPublicChoices-choicePct {
+	float: right;
+}
+
+.QuestionPublicChoices-choiceText {
+
+}
+
+.QuestionPublicChoices-choiceTrack,
+.QuestionPublicChoices-choiceBar {
+	border-radius: 3px;
+	height: 10px;
+}
+
+.QuestionPublicChoices-choiceTrack {
+	overflow: hidden;
+	margin-top: 2px;
+	width: 100%;
+	background-color: $lighterGrey;
+}
+
+.QuestionPublicChoices-choiceBar {
+	background-color: $grey;
+	animation: slideInRight .5s both;
+	will-change: transform;
+}
+
+.QuestionPublicChoices-choice--selected .QuestionPublicChoices-choiceBar {
+	background-color: $blue;
+}
+
+.QuestionPublicChoices-choice--correct .QuestionPublicChoices-choiceBar {
+	background-color: $green;
+}
+
+.QuestionPublicChoices-choice--selected.QuestionPublicChoices-choice--incorrect .QuestionPublicChoices-choiceBar {
+	background-color: $red;
+}
