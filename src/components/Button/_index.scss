@@ -38,6 +38,7 @@
 }
 
 .Button--disabled {
+	pointer-events: none;
 	cursor: default;
 	cursor: not-allowed;
 }
