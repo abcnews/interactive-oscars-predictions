@@ -84,7 +84,7 @@ const QuestionPublicTitle = (questionState, state) => {
 		text = `What does everybody${questionState.guess === null ? '' : ' else'} think?`;
 	}
 
-	return yo`<div class="QuestionPublicTitle h2">${text}</div>`;
+	return yo`<div class="QuestionPublicTitle h2" id="QuestionPublicTitle--${questionState.id}">${text}</div>`;
 };
 
 const QuestionPublicResult = (questionState, state) => {

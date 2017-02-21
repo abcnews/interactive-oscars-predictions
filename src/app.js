@@ -1,7 +1,7 @@
 const raf = require('raf');
 const sendAction = require('send-action');
 const yo = require('yo-yo');
-const {encode, decode, doesDecode} = require('./util');
+const {encode, decode, doesDecode, scrollToEl} = require('./util');
 const Begin = require('./components/Begin');
 const Question = require('./components/Question');
 const End = require('./components/End');
@@ -106,6 +106,14 @@ const app = (config, callback) => {
             yo.update(views.questions[questionState.id], Question(questionState, state, send));
           });
           yo.update(views.end, End(state, send));
+
+          if (params.question != null) {
+            const questionPublicTitleEl = document.getElementById(`QuestionPublicTitle--${params.question}`);
+
+            if (questionPublicTitleEl) {
+              scrollToEl(questionPublicTitleEl);
+            }
+          }
         });
       },
       state: {
