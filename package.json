@@ -1,6 +1,6 @@
 {
   "name": "interactive-oscars-predictions",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Predict the outcome of the Oscars and compare against the rest of the audience.",
   "license": "MIT",
   "private": true,
