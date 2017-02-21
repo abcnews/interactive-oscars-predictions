@@ -158,6 +158,7 @@ const questionsFromConfig = config => {
     id,
     statement,
     choices,
+    images,
     answer,
     guess,
     publicGuesses
@@ -166,6 +167,7 @@ const questionsFromConfig = config => {
       id,
       statement,
       choices,
+      images,
       answer: answer == null ? null : answer,
       guess: guess == null ? null : guess,
       publicGuesses

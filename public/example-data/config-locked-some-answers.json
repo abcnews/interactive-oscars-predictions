@@ -15,7 +15,19 @@
 				"Lion",
 				"Manchester by the Sea",
 				"Moonlight"
-			]
+			],
+			"images": [
+				8287022,
+				8287038,
+				8287042,
+				8287074,
+				8287082,
+				8287096,
+				8287098,
+				8287102,
+				8287106
+			],
+			"answer": 1
 		},
 		{
 			"id": "actor",
@@ -27,7 +39,13 @@
 				"Viggo Mortensen, Captain Fantastic",
 				"Denzel Washington, Fences"
 			],
-			"answer": 1
+			"images": [
+				8235306,
+				8210200,
+				8287186,
+				8287156,
+				8287176
+			]
 		},
 		{
 			"id": "actress",
@@ -38,7 +56,15 @@
 				"Natalie Portman, Jackie",
 				"Emma Stone, La La Land",
 				"Meryl Streep, Florence Foster Jenkins"
-			]
+			],
+			"images": [
+				7967506,
+				8287216,
+				8287230,
+				8287252,
+				8287300
+			],
+			"answer": 1
 		},
 		{
 			"id": "supporting-actor",
@@ -50,7 +76,13 @@
 				"Dev Patel, Lion",
 				"Michael Shannon, Nocturnal Animals"
 			],
-			"answer": 1
+			"images": [
+				8287354,
+				8287356,
+				8287368,
+				8287382,
+				8287386
+			]
 		},
 		{
 			"id": "supporting-actress",
@@ -61,7 +93,15 @@
 				"Nicole Kidman, Lion",
 				"Octavia Spencer, Hidden Figures",
 				"Michelle Williams, Manchester by the Sea"
-			]
+			],
+			"images": [
+				8287392,
+				8287402,
+				8287408,
+				8287424,
+				8287432
+			],
+			"answer": 1
 		},
 		{
 			"id": "director",
@@ -73,7 +113,13 @@
 				"Kenneth Lonergan, Manchester by the Sea",
 				"Barry Jenkins, Moonlight"
 			],
-			"answer": 1
+			"images": [
+				8287452,
+				8287466,
+				8287492,
+				8287524,
+				8287542
+			]
 		},
 		{
 			"id": "animated-feature",
@@ -84,7 +130,15 @@
 				"My Life as a Zucchini",
 				"The Red Turtle",
 				"Zootopia"
-			]
+			],
+			"images": [
+				8287558,
+				8287568,
+				8287580,
+				8287592,
+				8287598
+			],
+			"answer": 1
 		},
 		{
 			"id": "original-song",
@@ -96,7 +150,13 @@
 				"The Empty Chair from Jim: The James Foley Story",
 				"How Far I'll Go from Moana"
 			],
-			"answer": 1
+			"images": [
+				8287096,
+				8287618,
+				8287096,
+				8287622,
+				8287568
+			]
 		},
 		{
 			"id": "adapted-screenplay",
@@ -107,7 +167,15 @@
 				"Hidden Figures",
 				"Lion",
 				"Moonlight"
-			]
+			],
+			"images": [
+				8287022,
+				8287038,
+				8287082,
+				8287098,
+				8287106
+			],
+			"answer": 1
 		},
 		{
 			"id": "original-screenplay",
@@ -119,7 +187,13 @@
 				"Manchester by the Sea",
 				"20th Century Women"
 			],
-			"answer": 1
+			"images": [
+				8287074,
+				8287096,
+				8287612,
+				8287102,
+				8287616
+			]
 		}
 	]
 }

@@ -2,8 +2,17 @@
 
 }
 
+.End .Button::after {
+	bottom: auto;
+	top: 50%;
+}
+
 .End .h2:first-child {
 	margin-top: 10px;
+}
+
+.EndEmail {
+	text-decoration: none;
 }
 
 .EndEmail .Button {

@@ -1,4 +1,7 @@
+const cmimg = require('util-cmimg');
 const yo = require('yo-yo');
+
+const URL_ROOT = '//www.abc.net.au';
 
 const Question = (questionState, state, send) => {
 	questionState.publicGuessesTotal = questionState.publicGuesses.reduce((memo, value) => {
@@ -45,7 +48,7 @@ const QuestionPersonalChoices = (questionState, state, send) => {
 				className += ' Button--selected';
 			}
 
-			const label = choice.split(', ').reduce((acc, str, index) => {
+			const label = yo`<div>${choice.split(', ').reduce((acc, str, index) => {
 				if (index > 0) {
 					acc.push(',', yo`<br>`);
 				}
@@ -53,10 +56,12 @@ const QuestionPersonalChoices = (questionState, state, send) => {
 				acc.push(str);
 
 				return acc;
-			}, []);
+			}, [])}</div>`;
+
+			const image = questionState.images ? yo`<img src="${URL_ROOT}${cmimg(questionState.images[index], '3x4')}" />` : null;
 
 			return yo`<div class="QuestionPersonalChoices-choice">
-				<div class="${className}" onclick=${send.event('guess', {question: questionState.id, guess: index})} }>${label}</div>
+				<div class="${className}" onclick=${send.event('guess', {question: questionState.id, guess: index})} }>${image}${label}</div>
 			</div>`;
 		})}
 	</div>`;
