@@ -1,7 +1,7 @@
 const yo = require('yo-yo');
 const {doesDecode} = require('../../util');
 
-const PLACEHOLDER = '––––––';
+const PLACEHOLDER = '------';
 
 const Begin = (state, send) => {
 	const doesCodeInputValueDecode = doesDecode(state.codeInputValue, state.choicesLengths);
