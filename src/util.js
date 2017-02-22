@@ -4,6 +4,8 @@ const raf = require('raf');
 const CHARSET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 const SCROLL_DURATION = 1000;
 const SCROLL_EL_Y_OFFSET = 100;
+const SPACE = ' ';
+const NBSP = '\u00A0';
 
 const bitSize = num => num.toString(2).length;
 const b36 = baseN.create({characters: CHARSET});
@@ -95,4 +97,17 @@ const scrollToEl = el => {
   raf(scroll);
 };
 
-module.exports = {encode, decode, doesDecode, scrollToEl};
+const orphanless = text => {
+  const lastSpace =  text.lastIndexOf(SPACE);
+
+  if (lastSpace < 0 || text.split(SPACE).length < 3) {
+    return text;
+  }
+
+  return [
+    text.substring(0, lastSpace),
+    text.substring(lastSpace + 1)
+  ].join(NBSP);
+};
+
+module.exports = {encode, decode, doesDecode, scrollToEl, orphanless};

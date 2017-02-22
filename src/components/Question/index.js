@@ -1,5 +1,6 @@
 const cmimg = require('util-cmimg');
 const yo = require('yo-yo');
+const {orphanless} = require('../../util');
 
 const URL_ROOT = '//www.abc.net.au';
 
@@ -48,14 +49,14 @@ const QuestionPersonalChoices = (questionState, state, send) => {
 				className += ' Button--selected';
 			}
 
-			const label = yo`<div>${choice.split(', ').reduce((acc, str, index) => {
-				if (index > 0) {
-					acc.push(',', yo`<br>`);
+			const label = yo`<div>${choice.split(', ').reduce((acc, str, index, strs) => {
+				const text = orphanless(str);
+
+				if (index === 0 && strs.length > 1) {
+					return acc.concat([yo`<strong>${text}</strong>`]);
 				}
 
-				acc.push(str);
-
-				return acc;
+				return acc.concat([text]);
 			}, [])}</div>`;
 
 			const image = questionState.images ? yo`<img src="${URL_ROOT}${cmimg(questionState.images[index], '3x4')}" />` : null;

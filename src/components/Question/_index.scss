@@ -6,6 +6,10 @@
 
 .Question {
 	max-width: 720px;
+
+	@media (min-width: 640px) {
+		padding: 10px 20px;
+	}
 }
 
 .QuestionLabel + .h1 {
