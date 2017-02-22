@@ -11,6 +11,8 @@ const FIREBASE_APP_CONFIG = {
   storageBucket: 'oscars-predictions-e6153.appspot.com'
 };
 
+const PROJECT_NAME = 'interactive-oscars-predictions';
+
 const init = (config, $begin, $$questions, $end) => {
   const title = document.title.split(' -')[0];
   const hash = window.location.hash.replace('#', '');
@@ -54,7 +56,7 @@ const init = (config, $begin, $$questions, $end) => {
   });
 };
 
-const dataAttr = key => 'interactive-oscars-predictions-' + key;
+const dataAttr = key => [PROJECT_NAME, key].join('-');
 
 const dataAttrSelector = key => '[data-' + dataAttr(key) + ']';
 
@@ -103,6 +105,7 @@ $(() => {
 
   $.when(fetches[0], fetches[1]).done((config, dbDump) => {
     config.dbDump = dbDump;
+    config.localStorageKey = PROJECT_NAME;
     init(config, $begin, $$questions, $end);
   });
 

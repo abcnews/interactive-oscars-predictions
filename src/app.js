@@ -77,7 +77,7 @@ const app = (config, callback) => {
               }
 
               state.code = encode(state.questions.map(question => question.guess), choicesLengths);
-              window.localStorage.setItem('code', state.code);
+              window.localStorage.setItem(config.localStorageKey, state.code);
               state.wasCompletedManually = true;
             }
 
@@ -90,7 +90,7 @@ const app = (config, callback) => {
             });
             state.code = null;
             state.wasCompletedManually = false;
-            window.localStorage.removeItem('code');
+            window.localStorage.removeItem(config.localStorageKey);
             window.scrollTo(0, 0);
             break;
           default:
@@ -141,7 +141,7 @@ const app = (config, callback) => {
       }, {})
     };
 
-    const storedCode = window.localStorage.getItem('code');
+    const storedCode = window.localStorage.getItem(config.localStorageKey);
 
     if (doesDecode((config.hash || storedCode), choicesLengths)) {
       send('load', {code: config.hash || storedCode});
