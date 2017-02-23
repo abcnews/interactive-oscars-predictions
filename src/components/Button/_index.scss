@@ -1,7 +1,4 @@
 .Button {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
 	position: relative;
 	border: none;
 	border-radius: 5px;
@@ -47,18 +44,11 @@
 	opacity: 0.5;
 }
 
-.Button > * {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	flex: 1 1 auto;
-}
-
 .Button > img {
-	flex: 0 1 auto;
 	margin: -5px -10px 10px;
 	border-radius: 3px 3px 0 0;
-	max-width: calc(100% + 30px);
+	max-width: calc(100% + 20px);
+	vertical-align: bottom;
 }
 
 .Button--disabled:not(.Button--selected):not(.Button--correct) > img {

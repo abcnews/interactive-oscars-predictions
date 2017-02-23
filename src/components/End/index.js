@@ -2,8 +2,7 @@ const yo = require('yo-yo');
 
 const START = new Date(Date.UTC(2017, 1, 27, 1, 30));
 const START_DAY_TEXT = ['Sunday', 'Monday'][START.getDay()];
-const START_TIME = START.toTimeString();
-const START_TIME_TEXT = `${START_TIME.substr(0, 5)} ${START_TIME.split(' ')[2]}`;
+const START_TIME_TEXT = START.toTimeString().substr(0, 5);
 
 const End = (state, send) => {
 	const guesses = state.questions.reduce((memo, question) => {
@@ -28,7 +27,7 @@ const End = (state, send) => {
 
   return yo`<div class="End Card">
   	${state.wasCompletedManually ? yo`<div class="h1">Done!</div>` : null}
-  	<div class="h2">To see how ${state.wasCompletedManually ? 'your' : 'these'} answers stack up to the results, copy this unique code or email it to yourself and ${state.isLocked ? 'check back later' : `come back on ${START_DAY_TEXT} at ${START_TIME_TEXT}`}:</div>
+  	<div class="h2">To see how ${state.wasCompletedManually ? 'your' : 'these'} answers stack up to the results, copy this unique code or email it to yourself and ${state.isLocked ? 'check back later' : `come back on ${START_DAY_TEXT} at ${START_TIME_TEXT}`}</div>
   	${EndCode(state.code)}
   	<a class="EndEmail" href="mailto:?to=&subject=${state.encodedTitle}&body=${encodeURIComponent(emailBody)}">
   		<div class="Button">Email this code to yourself</div>

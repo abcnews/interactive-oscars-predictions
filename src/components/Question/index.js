@@ -53,7 +53,7 @@ const QuestionPersonalChoices = (questionState, state, send) => {
 				const text = orphanless(str);
 
 				if (index === 0 && strs.length > 1) {
-					return acc.concat([yo`<strong>${text}</strong>`]);
+					return acc.concat([yo`<strong>${text}</strong>`, yo`<br>`]);
 				}
 
 				return acc.concat([text]);
