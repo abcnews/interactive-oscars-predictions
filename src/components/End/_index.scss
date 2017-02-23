@@ -11,7 +11,9 @@
 	margin-top: 10px;
 }
 
-.EndEmail {
+.EndEmail,
+.EndEmail:focus,
+.EndEmail:hover, {
 	text-decoration: none;
 }
 
