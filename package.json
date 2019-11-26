@@ -1,39 +1,39 @@
 {
-  "name": "interactive-oscars-predictions",
-  "version": "1.6.1",
-  "description": "Predict the outcome of the Oscars and compare against the rest of the audience.",
-  "license": "MIT",
-  "private": true,
-  "contributors": [
-    "Colin Gourlay <Gourlay.Colin@abc.net.au>"
-  ],
-  "scripts": {
-    "start": "aunty serve --debug"
-  },
-  "dependencies": {
-    "@abcnews/poll-counters-client": "^1.3.1",
-    "base-n": "^1.0.0",
-    "fastclick": "^1.0.6",
-    "raf": "^3.2.0",
-    "send-action": "^1.1.0",
-    "util-cmimg": "git+ssh://git@stash.abc-dev.net.au:7999/news/util-cmimg.git",
-    "yo-yo": "^1.2.0"
-  },
-  "devDependencies": {
-    "@abcnews/aunty": "^10.8.0"
-  },
-  "aunty": {
-    "type": "basic",
-    "build": {
-      "extractCSS": true,
-      "useCSSModules": false
-    },
-    "webpack": {
-      "resolve": {
-        "alias": {
-          "morphdom": "morphdom/dist/morphdom.js"
-        }
-      }
-    }
-  }
+	"name": "interactive-oscars-predictions",
+	"version": "1.7.0",
+	"description": "Predict the outcome of the Oscars and compare against the rest of the audience.",
+	"license": "MIT",
+	"private": true,
+	"contributors": [
+		"Colin Gourlay <Gourlay.Colin@abc.net.au>"
+	],
+	"scripts": {
+		"start": "aunty serve --debug"
+	},
+	"dependencies": {
+		"@abcnews/poll-counters-client": "^1.3.1",
+		"base-n": "^1.0.0",
+		"fastclick": "^1.0.6",
+		"raf": "^3.2.0",
+		"send-action": "^1.1.0",
+		"util-cmimg": "git+ssh://git@stash.abc-dev.net.au:7999/news/util-cmimg.git",
+		"yo-yo": "^1.2.0"
+	},
+	"devDependencies": {
+		"@abcnews/aunty": "^10.8.0"
+	},
+	"aunty": {
+		"type": "basic",
+		"build": {
+			"extractCSS": true,
+			"useCSSModules": false
+		},
+		"webpack": {
+			"resolve": {
+				"alias": {
+					"morphdom": "morphdom/dist/morphdom.js"
+				}
+			}
+		}
+	}
 }
