@@ -1,26 +1,12 @@
 {
-	"dev": {
-		"picture": [3, 0, 2, 0, 1, 1, 0, 2, 1],
-		"actor": [2, 2, 4, 0, 2],
-		"actress": [0, 0, 0, 10, 0],
-		"supporting-actor": [8, 1, 0, 1, 0],
-		"supporting-actress": [1, 0, 3, 3, 3],
-		"director": [0, 4, 3, 2, 1],
-		"animated-feature": [0, 3, 2, 1, 4],
-		"original-song": [1, 0, 4, 3, 2],
-		"adapted-screenplay": [4, 0, 4, 2, 0],
-		"original-screenplay": [0, 2, 3, 3, 2]
-	},
-	"prod": {
-		"picture": [0, 0, 0, 0, 0, 0, 0, 0, 0],
-		"actor": [0, 0, 0, 0, 0],
-		"actress": [0, 0, 0, 0, 0],
-		"supporting-actor": [0, 0, 0, 0, 0],
-		"supporting-actress": [0, 0, 0, 0, 0],
-		"director": [0, 0, 0, 0, 0],
-		"animated-feature": [0, 0, 0, 0, 0],
-		"original-song": [0, 0, 0, 0, 0],
-		"adapted-screenplay": [0, 0, 0, 0, 0],
-		"original-screenplay": [0, 0, 0, 0, 0]
-	}
+  "actor": [1061, 191, 443, 111, 590],
+  "actress": [200, 296, 534, 1108, 258],
+  "adapted-screenplay": [185, 352, 485, 772, 600],
+  "animated-feature": [227, 1039, 115, 227, 787],
+  "director": [104, 360, 1107, 351, 473],
+  "original-screenplay": [182, 1045, 190, 919, 58],
+  "original-song": [699, 293, 1011, 66, 326],
+  "picture": [25, 107, 129, 20, 161, 1317, 164, 148, 325],
+  "supporting-actor": [821, 193, 151, 1164, 66],
+  "supporting-actress": [994, 297, 311, 460, 333]
 }

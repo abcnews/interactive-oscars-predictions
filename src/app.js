@@ -1,37 +1,45 @@
-const raf = require('raf');
-const sendAction = require('send-action');
-const yo = require('yo-yo');
-const {encode, decode, doesDecode, scrollToEl} = require('./util');
-const Begin = require('./components/Begin');
-const Question = require('./components/Question');
-const End = require('./components/End');
+const raf = require("raf");
+const sendAction = require("send-action");
+const yo = require("yo-yo");
+const { encode, decode, doesDecode, scrollToEl } = require("./util");
+const Begin = require("./components/Begin");
+const Question = require("./components/Question");
+const End = require("./components/End");
 
 const choicesLengths = question => question.choices.length;
 
 const app = (config, callback) => {
-  const choicesLengths = config.questions.map(question => question.choices.length);
+  const choicesLengths = config.questions.map(
+    question => question.choices.length
+  );
 
-  const isComplete = state => state.questions.every(question => question.guess !== null);
+  const isComplete = state =>
+    state.questions.every(question => question.guess !== null);
 
   const submitGuesses = state => {
-    state.questions.forEach(question => {
-      config.database.ref([config.id, question.id, question.guess].join('/'))
-      .transaction(count => (typeof count !== 'number') ? 1 : count + 1);
-    });
+    if (config.pollCountersClient != null) {
+      state.questions.forEach(question => {
+        config.pollCountersClient.increment({
+          question: question.id,
+          answer: String(question.guess)
+        });
+      });
+    }
   };
 
-  const create = (publicCounts) => {
+  const create = publicCounts => {
     config.questions.forEach(question => {
-      const publicGuesses = Array.isArray(publicCounts[question.id]) ?
-      publicCounts[question.id] :
-      question.choices.reduce((memo, choice, index) => {
-          memo[index] = 0;
+      const publicGuesses = Array.isArray(publicCounts[question.id])
+        ? publicCounts[question.id]
+        : question.choices.reduce((memo, choice, index) => {
+            memo[index] = 0;
 
-          return memo;
-      }, {});
+            return memo;
+          }, {});
 
-      question.publicGuesses = Object.keys(publicGuesses)
-      .map(choice_index => publicGuesses[choice_index] || 0);
+      question.publicGuesses = Object.keys(publicGuesses).map(
+        choice_index => publicGuesses[choice_index] || 0
+      );
     });
 
     const send = sendAction({
@@ -45,16 +53,19 @@ const app = (config, callback) => {
         }
 
         switch (params.type) {
-          case 'code-input':
+          case "code-input":
             state.codeInputValue = params.value;
             break;
-          case 'load':
+          case "load":
             const guesses = decode(params.code, choicesLengths);
             state.code = params.code;
             state.questions = state.questions.map((question, index) => {
               const guess = guesses[index];
 
-              if (typeof guess === 'number' && question.choices.length > guess) {
+              if (
+                typeof guess === "number" &&
+                question.choices.length > guess
+              ) {
                 question.guess = guess;
               } else {
                 question.guess = null;
@@ -63,7 +74,7 @@ const app = (config, callback) => {
               return question;
             });
             break;
-          case 'guess':
+          case "guess":
             if (state.isLocked || question == null || question.guess !== null) {
               break;
             }
@@ -72,17 +83,18 @@ const app = (config, callback) => {
             question.publicGuesses[params.guess]++;
             const wasLastGuess = isComplete(state);
             if (wasLastGuess) {
-              if (config.database) {
-                submitGuesses(state);
-              }
+              submitGuesses(state);
 
-              state.code = encode(state.questions.map(question => question.guess), choicesLengths);
+              state.code = encode(
+                state.questions.map(question => question.guess),
+                choicesLengths
+              );
               window.localStorage.setItem(config.localStorageKey, state.code);
               state.wasCompletedManually = true;
             }
 
             break;
-          case 'reset':
+          case "reset":
             state.questions = state.questions.map(question => {
               question.guess = null;
 
@@ -103,12 +115,17 @@ const app = (config, callback) => {
         raf(() => {
           yo.update(views.begin, Begin(state, send));
           state.questions.forEach(questionState => {
-            yo.update(views.questions[questionState.id], Question(questionState, state, send));
+            yo.update(
+              views.questions[questionState.id],
+              Question(questionState, state, send)
+            );
           });
           yo.update(views.end, End(state, send));
 
           if (params.question != null) {
-            const questionPublicTitleEl = document.getElementById(`QuestionPublicTitle--${params.question}`);
+            const questionPublicTitleEl = document.getElementById(
+              `QuestionPublicTitle--${params.question}`
+            );
 
             if (questionPublicTitleEl) {
               scrollToEl(questionPublicTitleEl);
@@ -124,7 +141,7 @@ const app = (config, callback) => {
         isLocked: config.isLocked,
         questions: questionsFromConfig(config),
         code: null,
-        codeInputValue: '',
+        codeInputValue: "",
         wasCompletedManually: false,
         choicesLengths
       }
@@ -143,44 +160,54 @@ const app = (config, callback) => {
 
     const storedCode = window.localStorage.getItem(config.localStorageKey);
 
-    if (doesDecode((config.hash || storedCode), choicesLengths)) {
-      send('load', {code: config.hash || storedCode});
+    if (doesDecode(config.hash || storedCode, choicesLengths)) {
+      send("load", { code: config.hash || storedCode });
     }
 
     callback(null, views);
   };
 
-  if (config.dbDump != null && config.dbDump[config.id]) {
-    create(config.dbDump[config.id]);
-  } else if (config.database != null) {
-    config.database.ref(config.id).once('value').then(snapshot => {
-      create(snapshot.val());
+  const localFallback = setTimeout(() => create(), 2000);
+
+  if (config.dbDump != null) {
+    clearTimeout(localFallback);
+    create(config.dbDump);
+  } else if (config.pollCountersClient != null) {
+    config.pollCountersClient.get((err, group) => {
+      clearTimeout(localFallback);
+      create(group ? group.value : generateInitialPublicCounts(config));
     });
   } else {
-    callback(new Error('No database or dbDump provided, or config.id not present in either.'));
+    callback(
+      new Error(
+        "No database or dbDump provided, or config.id not present in either."
+      )
+    );
   }
 };
 
+function generateInitialPublicCounts(config) {
+  return config.questions.reduce((memo, question) => {
+    memo[question.id] = question.choices.map(() => 0);
+
+    return memo;
+  }, {});
+}
+
 const questionsFromConfig = config => {
-  return config.questions.map(({
-    id,
-    statement,
-    choices,
-    images,
-    answer,
-    guess,
-    publicGuesses
-  }) => {
-    return {
-      id,
-      statement,
-      choices,
-      images,
-      answer: answer == null ? null : answer,
-      guess: guess == null ? null : guess,
-      publicGuesses
-    };
-  });
+  return config.questions.map(
+    ({ id, statement, choices, images, answer, guess, publicGuesses }) => {
+      return {
+        id,
+        statement,
+        choices,
+        images,
+        answer: answer == null ? null : answer,
+        guess: guess == null ? null : guess,
+        publicGuesses
+      };
+    }
+  );
 };
 
 module.exports = app;

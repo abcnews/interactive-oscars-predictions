@@ -2,7 +2,7 @@
 
 Predict the outcome of the Oscars and compare against the rest of the audience.
 
-A project generated from [aunty](https://github.com/abcnews/aunty)'s `basic-story` template.
+A project generated from [aunty](https://github.com/abcnews/aunty)'s `basic` template.
 
 ## Authors
 

@@ -1,22 +1,14 @@
-const fastclick = require('fastclick');
-const firebase = require("firebase/app");
-require("firebase/database");
+const { Client } = require("@abcnews/poll-counters-client");
+const fastclick = require("fastclick");
+const app = require("./app");
+require("./index.scss");
 
-const app = require('./app');
-
-const FIREBASE_APP_CONFIG = {
-  apiKey: 'AIzaSyBz7UdGwqhF4naubjEQIVH9GhsgP_FBXXI',
-  authDomain: 'oscars-predictions-e6153.firebaseapp.com',
-  databaseURL: 'https://oscars-predictions-e6153.firebaseio.com',
-  storageBucket: 'oscars-predictions-e6153.appspot.com'
-};
-
-const PROJECT_NAME = 'interactive-oscars-predictions';
+const PROJECT_NAME = "interactive-oscars-predictions";
 
 const init = (config, $begin, $$questions, $end) => {
-  const title = document.title.split(' -')[0];
-  const hash = window.location.hash.replace('#', '');
-  const url = window.location.href.replace(window.location.hash, '');
+  const title = document.title.split(" -")[0];
+  const hash = window.location.hash.replace("#", "");
+  const url = window.location.href.replace(window.location.hash, "");
 
   if (hash.length) {
     history.replaceState({}, document.title, url);
@@ -26,9 +18,8 @@ const init = (config, $begin, $$questions, $end) => {
   config.url = url;
   config.hash = hash.length ? hash : null;
 
-  if (typeof config.dbDump !== 'object') {
-    firebase.initializeApp(FIREBASE_APP_CONFIG);
-    config.database = firebase.database();
+  if (typeof config.dbDump !== "object") {
+    config.pollCountersClient = new Client(`${PROJECT_NAME}__${config.id}`);
   }
 
   app(config, (err, views) => {
@@ -40,7 +31,7 @@ const init = (config, $begin, $$questions, $end) => {
 
     $$questions.each((index, el) => {
       const $question = $(el);
-      const id = $question.data(dataAttr('question'));
+      const id = $question.data(dataAttr("question"));
       const question = config.questions.filter(question => {
         return question.id === id;
       })[0];
@@ -56,9 +47,9 @@ const init = (config, $begin, $$questions, $end) => {
   });
 };
 
-const dataAttr = key => [PROJECT_NAME, key].join('-');
+const dataAttr = key => [PROJECT_NAME, key].join("-");
 
-const dataAttrSelector = key => '[data-' + dataAttr(key) + ']';
+const dataAttrSelector = key => "[data-" + dataAttr(key) + "]";
 
 const getByKey = key => {
   const $els = $(dataAttrSelector(key));
@@ -71,7 +62,7 @@ const getByKey = key => {
 };
 
 const unwrapped = ($el, _el) => {
-  const is$Map = (typeof $el === 'number');
+  const is$Map = typeof $el === "number";
 
   $el = is$Map ? $(_el) : $el;
 
@@ -79,7 +70,7 @@ const unwrapped = ($el, _el) => {
 
   // If last element we unwrapped was just the preview site's
   // <span id="CTX-\d+"> wrapper, we need to unwrap again.
-  if ($el.parent().is('.html-fragment')) {
+  if ($el.parent().is(".html-fragment")) {
     $el.unwrap();
   }
 
@@ -87,18 +78,22 @@ const unwrapped = ($el, _el) => {
 };
 
 $(() => {
-  const $begin = unwrapped(getByKey('begin').first());
-  const $$questions = getByKey('question').map(unwrapped);
-  const $end = unwrapped(getByKey('end').first());
-  const configURL = getByKey('config').first().data(dataAttr('config'));
+  const $begin = unwrapped(getByKey("begin").first());
+  const $$questions = getByKey("question").map(unwrapped);
+  const $end = unwrapped(getByKey("end").first());
+  const configURL = getByKey("config")
+    .first()
+    .data(dataAttr("config"));
   const fetches = [$.Deferred(), $.Deferred()];
 
-  $.getJSON(configURL)
-  .done(config => fetches[0].resolve(config));
+  $.getJSON(configURL).done(config => fetches[0].resolve(config));
 
   try {
-    $.getJSON(getByKey('db-dump').first().data(dataAttr('db-dump')))
-    .done(dbDump => fetches[1].resolve(dbDump));
+    $.getJSON(
+      getByKey("db-dump")
+        .first()
+        .data(dataAttr("db-dump"))
+    ).done(dbDump => fetches[1].resolve(dbDump));
   } catch (e) {
     fetches[1].resolve();
   }
